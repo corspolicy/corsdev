@@ -16,7 +16,7 @@ import { FaGithub, FaTelegramPlane } from "react-icons/fa"
 function BreadcrumbDemo() {
   return (
     <div className="flex flex-col items-center justify-center min-h-screen">
-      {/* Avatar */}
+     
       <div>
         <Avatar className="w-32 h-32">
           <AvatarImage src="https://github.com/persodev0.png" alt="@persodev" />
@@ -26,7 +26,7 @@ function BreadcrumbDemo() {
 
       <div className="my-4"></div>
 
-      {/* Alert */}
+      
       <div>
         <Alert>
           <Terminal className="h-4 w-4" />
@@ -39,7 +39,7 @@ function BreadcrumbDemo() {
 
       <div className="my-4"></div>
 
-      {/* Buttons */}
+      
       <div className="flex space-x-4">
         <a href="https://github.com/persodev0" target="_blank" rel="noopener noreferrer">
           <Button className="bg-black">
@@ -55,7 +55,7 @@ function BreadcrumbDemo() {
 
       <div className="my-4"></div>
 
-      {/* HoverCard */}
+     
       <HoverCard>
         <HoverCardTrigger asChild>
           <Button variant="link">@persodev</Button>
