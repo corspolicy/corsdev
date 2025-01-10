@@ -1,6 +1,7 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+
 import {
   Avatar,
   AvatarFallback,
@@ -178,8 +179,16 @@ function BreadcrumbDemo() {
         transition={{ delay: 0.5 }}
         className="my-6"
       >
-        <Separator className="w-48 bg-white/20" />
       </motion.div>
+
+     
+    <div>
+        <p className="text-sm text-muted-foreground">
+          Bu web sitesi <a href="https://ui.shadcn.com/" className="text-white">shadcn/ui</a> kullanılarak yazılmıştır.
+        </p>
+      <Separator className="my-4" />
+    </div>
+
 
       <motion.div 
         variants={container}
