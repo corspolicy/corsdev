@@ -5,7 +5,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "PersoDev",
+  title: "CorsPolicy",
   description: "Modern ve minimalist tasarıma sahip kişisel portfolio sayfası",
 };
 
