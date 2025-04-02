@@ -22,7 +22,7 @@ Modern ve minimalist tasarıma sahip kişisel portfolio sayfası.
 
 ```bash
 # Repo'yu klonlayın
-git clone https://github.com/persodev0/portfolio.git
+git clone https://github.com/corspolicy/portfolio.git
 
 # Proje dizinine gidin
 cd portfolio
@@ -35,8 +35,3 @@ npm run dev
 ```
 
 Tarayıcınızda [http://localhost:3000](http://localhost:3000) adresini açarak projeyi görüntüleyebilirsiniz.
-
-## İletişim
-
-- GitHub: [@persodev0](https://github.com/persodev0)
-- Telegram: [@corspolicy](https://t.me/corspolicy)
