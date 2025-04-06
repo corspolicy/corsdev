@@ -158,7 +158,7 @@ function BreadcrumbDemo() {
         },
         {
           id: 3,
-          title: "CorsDev Protfolio",
+          title: "CorsDev Portfolio",
           description: language === "tr" ? t.corsdevDesc : t.corsdevDesc,
           image:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
