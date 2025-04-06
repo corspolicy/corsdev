@@ -1,15 +1,32 @@
 "use client"
 
+import type React from "react"
+
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
-import { Terminal, CalendarDays, Code2, Laptop2, GraduationCap, Coffee, Volume2, VolumeX, Globe } from "lucide-react"
+import {
+  Terminal,
+  CalendarDays,
+  Code2,
+  Laptop2,
+  GraduationCap,
+  Coffee,
+  Volume2,
+  VolumeX,
+  Globe,
+  FolderGit2,
+  Code,
+} from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { FaGithub } from "react-icons/fa"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
 import { motion } from "framer-motion"
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "@/components/ui/dropdown-menu"
+import { Skeleton } from "@/components/ui/skeleton"
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card"
+import { Badge } from "@/components/ui/badge"
 
 const container = {
   hidden: { opacity: 0 },
@@ -38,6 +55,21 @@ const translations = {
     companyManagement: "Şirket Yönetimi",
     fullstack: "Full-stack web uygulamaları geliştirme",
     createdBy: "tarafından oluşturuldu ve paylaşıldı.",
+    projects: "Projeler",
+    projectsLoading: "Projeler yükleniyor...",
+    viewProject: "Projeyi Görüntüle",
+    viewOnGithub: "GitHub'da Görüntüle",
+    telegramAutoDesc:
+      "Node.js ile yazılmış basit bir Telegram Mesajlaşma Otomasyonu. Telegram API kullanarak otomatik mesaj gönderimi yapabilir.",
+    watchgenDesc:
+      "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
+    corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
+    technologies: "Teknolojiler:",
+    nodejs: "Node.js",
+    javascript: "JavaScript",
+    vuejs: "Vue.js",
+    typescript: "TypeScript",
+    tailwind: "Tailwind CSS",
   },
   en: {
     skills: "Skills",
@@ -50,13 +82,49 @@ const translations = {
     companyManagement: "Company Management",
     fullstack: "Full-stack web application development",
     createdBy: "created and shared by",
+    projects: "Projects",
+    projectsLoading: "Loading projects...",
+    viewProject: "View Project",
+    viewOnGithub: "View on GitHub",
+    telegramAutoDesc:
+      "A simple Telegram Messaging Automation written in Node.js. Can send automated messages using the Telegram API.",
+    watchgenDesc:
+      "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
+    corsdevDesc: "It was created for my personal web development projects and experimental work.",
+    technologies: "Technologies:",
+    nodejs: "Node.js",
+    javascript: "JavaScript",
+    vuejs: "Vue.js",
+    typescript: "TypeScript",
+    tailwind: "Tailwind CSS",
   },
+}
+
+interface Project {
+  id: number
+  title: string
+  description: string
+  image: string
+  link: string
+  icon: React.ReactNode
+  technologies: string[]
 }
 
 function BreadcrumbDemo() {
   const [language, setLanguage] = useState("tr")
   const [isMuted, setIsMuted] = useState(true)
   const t = translations[language as keyof typeof translations]
+  const [isLoading, setIsLoading] = useState(true)
+  const [projects, setProjects] = useState<Project[]>([])
+  const [pageLoaded, setPageLoaded] = useState(false)
+
+  useEffect(() => {
+    const pageTimer = setTimeout(() => {
+      setPageLoaded(true)
+    }, 1500)
+
+    return () => clearTimeout(pageTimer)
+  }, [])
 
   useEffect(() => {
     const tag = document.createElement("script")
@@ -64,6 +132,46 @@ function BreadcrumbDemo() {
     const firstScriptTag = document.getElementsByTagName("script")[0]
     firstScriptTag.parentNode?.insertBefore(tag, firstScriptTag)
   }, [])
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setProjects([
+        {
+          id: 1,
+          title: "Telegram Auto Message",
+          description: language === "tr" ? t.telegramAutoDesc : t.telegramAutoDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/corspolicy/TelegramAutoMessage",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.nodejs, t.javascript],
+        },
+        {
+          id: 2,
+          title: "Watchgen Platform",
+          description: language === "tr" ? t.watchgenDesc : t.watchgenDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/corspolicy/watchgen",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.vuejs, t.typescript, t.tailwind],
+        },
+        {
+          id: 3,
+          title: "CorsDev Protfolio",
+          description: language === "tr" ? t.corsdevDesc : t.corsdevDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/corspolicy/corsdev",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.javascript, t.nodejs],
+        },
+      ])
+      setIsLoading(false)
+    }, 2000)
+
+    return () => clearTimeout(timer)
+  }, [language, t])
 
   const toggleMute = () => {
     const iframe = document.getElementById("youtube-audio") as HTMLIFrameElement
@@ -77,6 +185,25 @@ function BreadcrumbDemo() {
     }
   }
 
+  if (!pageLoaded) {
+    return (
+      <div className="fixed inset-0 z-50 flex items-center justify-center bg-black">
+        <div className="flex flex-col items-center">
+          <div className="animate-spin mb-4">
+            <svg className="h-16 w-16 text-blue-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+              <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+              <path
+                className="opacity-75"
+                fill="currentColor"
+                d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+              ></path>
+            </svg>
+          </div>
+        </div>
+      </div>
+    )
+  }
+
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -85,14 +212,13 @@ function BreadcrumbDemo() {
       className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-b from-gray-900 to-black text-white"
     >
       <div className="hidden">
-      <iframe 
-  id="youtube-audio" 
-  width="0" 
-  height="0" 
-  src="https://www.youtube.com/embed/diPgJjT-DUg?autoplay=1&enablejsapi=1&mute=1&loop=1&playlist=diPgJjT-DUg" 
-  allow="autoplay"
-></iframe>
-
+        <iframe
+          id="youtube-audio"
+          width="0"
+          height="0"
+          src="https://www.youtube.com/embed/diPgJjT-DUg?autoplay=1&enablejsapi=1&mute=1&loop=1&playlist=diPgJjT-DUg"
+          allow="autoplay"
+        ></iframe>
       </div>
 
       <div className="fixed top-4 right-4 flex gap-2 z-50">
@@ -127,7 +253,7 @@ function BreadcrumbDemo() {
         }}
         className="transform hover:scale-105 transition-transform duration-300"
       >
-        <Avatar className="w-32 h-32 ring-4 ring-blue-500 ring-opacity-50">
+        <Avatar className="w-32 h-32 ring-4 ring-blue-500 ring-opacity-50 mt-10">
           <AvatarImage src="https://github.com/corspolicy.png" alt="@corspolicy" />
           <AvatarFallback>@corspolicy</AvatarFallback>
         </Avatar>
@@ -236,6 +362,88 @@ function BreadcrumbDemo() {
             </AccordionItem>
           </motion.div>
         </Accordion>
+      </motion.div>
+
+      <div className="my-6"></div>
+
+      <motion.div variants={container} initial="hidden" animate="show" className="max-w-4xl w-full px-4">
+        <motion.div variants={item} className="mb-4">
+          <div className="flex items-center gap-2 text-xl font-bold text-white">
+            <FolderGit2 className="h-5 w-5 text-blue-400" />
+            {t.projects}
+          </div>
+        </motion.div>
+
+        {isLoading ? (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {[1, 2, 3].map((i) => (
+              <Card key={i} className="bg-black/50 border border-white/20 text-white overflow-hidden">
+                <CardHeader className="p-0">
+                  <Skeleton className="h-40 w-full rounded-none bg-white/10" />
+                </CardHeader>
+                <CardContent className="p-4">
+                  <Skeleton className="h-6 w-3/4 mb-2 bg-white/10" />
+                  <Skeleton className="h-4 w-full mb-1 bg-white/10" />
+                  <Skeleton className="h-4 w-2/3 bg-white/10" />
+                </CardContent>
+                <CardFooter className="p-4 pt-0">
+                  <Skeleton className="h-9 w-full bg-white/10" />
+                </CardFooter>
+              </Card>
+            ))}
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {projects.map((project) => (
+              <motion.div key={project.id} variants={item} whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.98 }}>
+                <Card className="bg-black/50 border border-white/20 text-white overflow-hidden h-full flex flex-col">
+                  <CardHeader className="p-0">
+                    <div className="relative h-40 overflow-hidden">
+                      <img
+                        src={project.image || "/placeholder.svg"}
+                        alt={project.title}
+                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-110"
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                      <div className="absolute bottom-2 left-2 flex items-center">
+                        <div className="bg-black/60 p-1 rounded-full">{project.icon}</div>
+                      </div>
+                    </div>
+                  </CardHeader>
+                  <CardContent className="p-4 flex-grow">
+                    <div className="flex items-center gap-2 mb-2">
+                      <CardTitle className="text-lg text-blue-400">{project.title}</CardTitle>
+                    </div>
+                    <CardDescription className="text-gray-300">{project.description}</CardDescription>
+                    <div className="mt-3">
+                      <p className="text-xs text-gray-400 mb-1">{t.technologies}</p>
+                      <div className="flex flex-wrap gap-1">
+                        {project.technologies.map((tech, index) => (
+                          <Badge
+                            key={index}
+                            variant="outline"
+                            className="bg-blue-500/10 text-blue-300 border-blue-500/30 text-xs"
+                          >
+                            {tech}
+                          </Badge>
+                        ))}
+                      </div>
+                    </div>
+                  </CardContent>
+                  <CardFooter className="p-4 pt-0">
+                    <Button
+                      className="w-full bg-blue-500/20 hover:bg-blue-500/40 text-blue-300"
+                      onClick={() => window.open(project.link, "_blank")}
+                    >
+                      <FaGithub className="mr-2 h-4 w-4" />
+                      {t.viewOnGithub}
+                    </Button>
+                  </CardFooter>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        )}
       </motion.div>
 
       <motion.div
