@@ -22,7 +22,7 @@ Modern ve minimalist tasarıma sahip kişisel portfolio sayfası.
 
 ```bash
 # Repo'yu klonlayın
-git clone https://github.com/corspolicy/portfolio.git
+git clone https://github.com/corspolicy/corsdev.git
 
 # Proje dizinine gidin
 cd portfolio
