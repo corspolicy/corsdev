@@ -70,6 +70,14 @@ const translations = {
     vuejs: "Vue.js",
     typescript: "TypeScript",
     tailwind: "Tailwind CSS",
+    html: "HTML",
+    css: "CSS",
+    telegram: "Telegram API",
+    express: "Express.js",
+    vite: "Vite",
+    pinia: "Pinia",
+    reactjs: "React.js",
+    nextjs: "Next.js",
   },
   en: {
     skills: "Skills",
@@ -97,6 +105,14 @@ const translations = {
     vuejs: "Vue.js",
     typescript: "TypeScript",
     tailwind: "Tailwind CSS",
+    html: "HTML",
+    css: "CSS",
+    telegram: "Telegram API",
+    express: "Express.js",
+    vite: "Vite",
+    pinia: "Pinia",
+    reactjs: "React.js",
+    nextjs: "Next.js",
   },
 }
 
@@ -144,7 +160,7 @@ function BreadcrumbDemo() {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/corspolicy/TelegramAutoMessage",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.nodejs, t.javascript],
+          technologies: [t.nodejs, t.javascript, t.telegram, t.express],
         },
         {
           id: 2,
@@ -154,7 +170,7 @@ function BreadcrumbDemo() {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/corspolicy/watchgen",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.vuejs, t.typescript, t.tailwind],
+          technologies: [t.vuejs, t.typescript, t.tailwind, t.css, t.html, t.vite, t.pinia],
         },
         {
           id: 3,
@@ -164,7 +180,7 @@ function BreadcrumbDemo() {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/corspolicy/corsdev",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.javascript, t.nodejs],
+          technologies: [t.javascript, t.nodejs, t.reactjs, t.nextjs, t.html, t.css, t.tailwind],
         },
       ])
       setIsLoading(false)
