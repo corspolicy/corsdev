@@ -60,8 +60,6 @@ const translations = {
     projectsLoading: "Projeler yükleniyor...",
     viewProject: "Projeyi Görüntüle",
     viewOnGithub: "GitHub'da Görüntüle",
-    telegramAutoDesc:
-      "Node.js ile yazılmış basit bir Telegram Mesajlaşma Otomasyonu. Telegram API kullanarak otomatik mesaj gönderimi yapabilir.",
     watchgenDesc:
       "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
     corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
@@ -73,7 +71,6 @@ const translations = {
     tailwind: "Tailwind CSS",
     html: "HTML",
     css: "CSS",
-    telegram: "Telegram API",
     express: "Express.js",
     vite: "Vite",
     pinia: "Pinia",
@@ -95,9 +92,7 @@ const translations = {
     projectsLoading: "Loading projects...",
     viewProject: "View Project",
     viewOnGithub: "View on GitHub",
-    telegramAutoDesc:
-      "A simple Telegram Messaging Automation written in Node.js. Can send automated messages using the Telegram API.",
-    watchgenDesc:
+       watchgenDesc:
       "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
     corsdevDesc: "It was created for my personal web development projects and experimental work.",
     technologies: "Technologies:",
@@ -108,7 +103,6 @@ const translations = {
     tailwind: "Tailwind CSS",
     html: "HTML",
     css: "CSS",
-    telegram: "Telegram API",
     express: "Express.js",
     vite: "Vite",
     pinia: "Pinia",
@@ -155,16 +149,6 @@ function BreadcrumbDemo() {
       setProjects([
         {
           id: 1,
-          title: "Telegram Auto Message",
-          description: language === "tr" ? t.telegramAutoDesc : t.telegramAutoDesc,
-          image:
-            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
-          link: "https://github.com/corspolicy/TelegramAutoMessage",
-          icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.nodejs, t.javascript, t.telegram, t.express],
-        },
-        {
-          id: 2,
           title: "Watchgen Platform",
           description: language === "tr" ? t.watchgenDesc : t.watchgenDesc,
           image:
@@ -174,7 +158,7 @@ function BreadcrumbDemo() {
           technologies: [t.vuejs, t.typescript, t.tailwind, t.css, t.html, t.vite, t.pinia],
         },
         {
-          id: 3,
+          id: 2,
           title: "CorsDev Portfolio",
           description: language === "tr" ? t.corsdevDesc : t.corsdevDesc,
           image:
