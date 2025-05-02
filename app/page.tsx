@@ -1,25 +1,11 @@
-/* eslint-disable @next/next/no-img-element */
 "use client"
 
 import type React from "react"
-
 import { useState, useEffect } from "react"
 import { Button } from "@/components/ui/button"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { HoverCard, HoverCardContent, HoverCardTrigger } from "@/components/ui/hover-card"
-import {
-  Terminal,
-  CalendarDays,
-  Code2,
-  Laptop2,
-  GraduationCap,
-  Coffee,
-  Volume2,
-  VolumeX,
-  Globe,
-  FolderGit2,
-  Code,
-} from "lucide-react"
+import {Terminal, Code2, Laptop2, GraduationCap, Coffee, Volume2, VolumeX, Globe, FolderGit2, Code } from "lucide-react"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { FaGithub } from "react-icons/fa"
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
@@ -54,6 +40,7 @@ const translations = {
     uiuxDesign: "UI/UX Tasarım",
     webDeveloper: "Web Geliştirici",
     companyManagement: "Şirket Yönetimi",
+    companyDescyription: "Posgen Software | Genel Müdür",
     fullstack: "Full-stack web uygulamaları geliştirme",
     createdBy: "tarafından oluşturuldu ve paylaşıldı.",
     projects: "Projeler",
@@ -63,6 +50,7 @@ const translations = {
     watchgenDesc:
       "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
     corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
+    depremapiDesc:"Türkiye'deki son ve geçmiş deprem bilgilerini sunar. Veriler, KOERI (Boğaziçi Üniversitesi Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü) tarafından sağlanır ve hızlı, güvenilir erişim için önbellekleme (cache) sistemi kullanır.",
     technologies: "Teknolojiler:",
     nodejs: "Node.js",
     javascript: "JavaScript",
@@ -86,6 +74,7 @@ const translations = {
     uiuxDesign: "UI/UX Design",
     webDeveloper: "Web Developer",
     companyManagement: "Company Management",
+    companyDescyription: "Posgen Software | Chief Executive Officier",
     fullstack: "Full-stack web application development",
     createdBy: "created and shared by",
     projects: "Projects",
@@ -95,6 +84,7 @@ const translations = {
        watchgenDesc:
       "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
     corsdevDesc: "It was created for my personal web development projects and experimental work.",
+    depremapiDesc:"Provides information about recent and past earthquakes in Turkey. The data is provided by KOERI (Kandilli Observatory and Earthquake Research Institute of Boğaziçi University) and uses a caching system for fast and reliable access.",
     technologies: "Technologies:",
     nodejs: "Node.js",
     javascript: "JavaScript",
@@ -167,6 +157,16 @@ function BreadcrumbDemo() {
           icon: <Code className="h-5 w-5 text-yellow-400" />,
           technologies: [t.javascript, t.nodejs, t.reactjs, t.nextjs, t.html, t.css, t.tailwind],
         },
+        {
+          id: 3,
+          title: "Koeri API",
+          description: language === "tr" ? t.depremapiDesc : t.depremapiDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/corspolicy/deprem-api-nodejs",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.javascript, t.nodejs, t.html, t.css,],
+        },
       ])
       setIsLoading(false)
     }, 2000)
@@ -204,6 +204,8 @@ function BreadcrumbDemo() {
       </div>
     )
   }
+
+  
 
   return (
     <motion.div
@@ -285,8 +287,14 @@ function BreadcrumbDemo() {
             )}
           </AlertDescription>
         </Alert>
+        <center>
+          <br  />
+        <img 
+    width="320"
+    src="https://lanyard-profile-readme.vercel.app/api/1245731554286633033?theme=dark&bg=111827&animated=false&borderRadius=10px"
+    alt="Discord Presence"
+  /></center>
       </motion.div>
-
       <div className="my-6"></div>
 
       <motion.div variants={container} initial="hidden" animate="show" className="max-w-4xl w-full px-4">
@@ -342,7 +350,7 @@ function BreadcrumbDemo() {
                     {
                       title: t.companyManagement,
                       date: "2025 - Günümüz",
-                      desc: "Pos... :)",
+                      desc: t.companyDescyription,
                       borderColor: "border-green-400",
                     },
                   ].map((exp, index) => (
@@ -480,7 +488,9 @@ function BreadcrumbDemo() {
         ))}
       </motion.div>
 
-      <div className="my-6"></div>
+
+
+      <div className="my-2"></div>
 
       <motion.div initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: 0.8 }}>
         <HoverCard>
@@ -493,18 +503,13 @@ function BreadcrumbDemo() {
             <div className="flex justify-between space-x-4">
               <Avatar className="ring-2 ring-blue-500">
                 <AvatarImage src="https://github.com/corspolicy.png" alt="@corspolicy" />
-                <AvatarFallback>VC</AvatarFallback>
               </Avatar>
-              <div className="space-y-1">
                 <p className="text-sm">
-                  <strong className="text-blue-400">@corspolicy</strong> {t.createdBy}.
+                <strong className="text-blue-400">@corspolicy</strong> {t.createdBy}.
                 </p>
-                <div className="flex items-center pt-2">
-                  <CalendarDays className="mr-2 h-4 w-4 opacity-70" />
-                  <span className="text-xs text-gray-400">2025</span>
-                </div>
-              </div>
+                
             </div>
+          
           </HoverCardContent>
         </HoverCard>
       </motion.div>
