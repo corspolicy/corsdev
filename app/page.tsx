@@ -51,6 +51,7 @@ const translations = {
     watchgenDesc:
       "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
     corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
+    telegramautoDesc:"Telegram'da otomatik mesaj gönderme özelliğine sahip bir otomasyon.",
     depremapiDesc:"Türkiye'deki son ve geçmiş deprem bilgilerini sunar. Veriler, KOERI (Boğaziçi Üniversitesi Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü) tarafından sağlanır ve hızlı, güvenilir erişim için önbellekleme (cache) sistemi kullanır.",
     kandillimapDesc:"Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü tarafından sağlanan verilerle Türkiye'deki son depremleri harita üzerinde gösterir.",
     technologies: "Teknolojiler:",
@@ -87,6 +88,7 @@ const translations = {
        watchgenDesc:
       "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
     corsdevDesc: "It was created for my personal web development projects and experimental work.",
+    telegramautoDesc:"An automation with the ability to send automatic messages on Telegram.",
     depremapiDesc:"Provides information about recent and past earthquakes in Turkey. The data is provided by KOERI (Kandilli Observatory and Earthquake Research Institute of Boğaziçi University) and uses a caching system for fast and reliable access.",
     kandillimapDesc:"Displays recent earthquakes in Turkey on a map using data provided by the Kandilli Observatory and Earthquake Research Institute.",
     technologies: "Technologies:",
@@ -188,6 +190,16 @@ function BreadcrumbDemo() {
           image:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/corspolicy/discord_bot",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.javascript, t.nodejs],
+        },
+        {
+          id: 6,
+          title: "Telegram Automation",
+          description: language === "tr" ? t.discordbotDesc : t.discordbotDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/corspolicy/TelegramAuto",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
           technologies: [t.javascript, t.nodejs],
         },
