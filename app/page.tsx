@@ -51,6 +51,7 @@ const translations = {
       "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
     corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
     depremapiDesc:"Türkiye'deki son ve geçmiş deprem bilgilerini sunar. Veriler, KOERI (Boğaziçi Üniversitesi Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü) tarafından sağlanır ve hızlı, güvenilir erişim için önbellekleme (cache) sistemi kullanır.",
+    kandillimapDesc:"Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü tarafından sağlanan verilerle Türkiye'deki son depremleri harita üzerinde gösterir.",
     technologies: "Teknolojiler:",
     nodejs: "Node.js",
     javascript: "JavaScript",
@@ -85,6 +86,7 @@ const translations = {
       "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
     corsdevDesc: "It was created for my personal web development projects and experimental work.",
     depremapiDesc:"Provides information about recent and past earthquakes in Turkey. The data is provided by KOERI (Kandilli Observatory and Earthquake Research Institute of Boğaziçi University) and uses a caching system for fast and reliable access.",
+    kandillimapDesc:"Displays recent earthquakes in Turkey on a map using data provided by the Kandilli Observatory and Earthquake Research Institute.",
     technologies: "Technologies:",
     nodejs: "Node.js",
     javascript: "JavaScript",
@@ -166,6 +168,16 @@ function BreadcrumbDemo() {
           link: "https://github.com/corspolicy/deprem-api-nodejs",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
           technologies: [t.javascript, t.nodejs, t.html, t.css,],
+        },
+        {
+          id: 4,
+          title: "Kandilli Map",
+          description: language === "tr" ? t.kandillimapDesc : t.kandillimapDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/Squezilia/kandilli-map",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.vuejs, t.typescript, t.html, t.css,],
         },
       ])
       setIsLoading(false)
