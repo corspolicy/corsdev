@@ -47,6 +47,7 @@ const translations = {
     projectsLoading: "Projeler yükleniyor...",
     viewProject: "Projeyi Görüntüle",
     viewOnGithub: "GitHub'da Görüntüle",
+    discordbotDesc:"Discord kumar botu. Kullanıcıların belirli komutları kullanarak kumar oynamasına olanak tanır.",
     watchgenDesc:
       "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
     corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
@@ -82,6 +83,7 @@ const translations = {
     projectsLoading: "Loading projects...",
     viewProject: "View Project",
     viewOnGithub: "View on GitHub",
+    discordbotDesc:"Discord gambling bot. Allows users to gamble using specific commands.",
        watchgenDesc:
       "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
     corsdevDesc: "It was created for my personal web development projects and experimental work.",
@@ -167,7 +169,7 @@ function BreadcrumbDemo() {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/corspolicy/deprem-api-nodejs",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.javascript, t.nodejs, t.html, t.css,],
+          technologies: [t.javascript, t.nodejs, t.html, t.css],
         },
         {
           id: 4,
@@ -177,7 +179,17 @@ function BreadcrumbDemo() {
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/Squezilia/kandilli-map",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.vuejs, t.typescript, t.html, t.css,],
+          technologies: [t.vuejs, t.typescript, t.html, t.css],
+        },
+        {
+          id: 5,
+          title: "Discord Bot",
+          description: language === "tr" ? t.discordbotDesc : t.discordbotDesc,
+          image:
+            "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/corspolicy/discord_bot",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.javascript, t.nodejs],
         },
       ])
       setIsLoading(false)
