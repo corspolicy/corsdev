@@ -50,6 +50,8 @@ const translations = {
     discordbotDesc:"Discord kumar botu. Kullanıcıların belirli komutları kullanarak kumar oynamasına olanak tanır.",
     watchgenDesc:
       "Vue.js ve TypeScript ile geliştirilmiş modern bir anime izleme platformu. Kullanıcı dostu arayüz ve responsive tasarım.",
+    urlshortDesc:
+      "Kısa URL'ler oluşturmak için kullanılan bir uygulama. Kullanıcıların uzun URL'leri kısaltmasına olanak tanır.",
     corsdevDesc: "Kişisel web geliştirme projelerim ve deneysel çalışmalarım için oluşturuldu.",
     telegramautoDesc:"Telegram'da otomatik mesaj gönderme özelliğine sahip bir otomasyon.",
     depremapiDesc:"Türkiye'deki son ve geçmiş deprem bilgilerini sunar. Veriler, KOERI (Boğaziçi Üniversitesi Kandilli Rasathanesi ve Deprem Araştırma Enstitüsü) tarafından sağlanır ve hızlı, güvenilir erişim için önbellekleme (cache) sistemi kullanır.",
@@ -67,6 +69,7 @@ const translations = {
     pinia: "Pinia",
     reactjs: "React.js",
     nextjs: "Next.js",
+    bunjs: "Bun.js",
   },
   en: {
     skills: "Skills",
@@ -87,6 +90,8 @@ const translations = {
     discordbotDesc:"Discord gambling bot. Allows users to gamble using specific commands.",
        watchgenDesc:
       "A modern anime viewing platform developed with Vue.js and TypeScript. User-friendly interface and responsive design",
+      urlshortDesc:
+      "An application used to create short URLs. Allows users to shorten long URLs.",
     corsdevDesc: "It was created for my personal web development projects and experimental work.",
     telegramautoDesc:"An automation with the ability to send automatic messages on Telegram.",
     depremapiDesc:"Provides information about recent and past earthquakes in Turkey. The data is provided by KOERI (Kandilli Observatory and Earthquake Research Institute of Boğaziçi University) and uses a caching system for fast and reliable access.",
@@ -104,6 +109,7 @@ const translations = {
     pinia: "Pinia",
     reactjs: "React.js",
     nextjs: "Next.js",
+    bunjs: "Bun.js",
   },
 }
 
@@ -155,16 +161,25 @@ function BreadcrumbDemo() {
         },
         {
           id: 2,
-          title: "CorsDev Portfolio",
-          description: language === "tr" ? t.corsdevDesc : t.corsdevDesc,
+          title: "Url Shorter",
+          description: language === "tr" ? t.watchgenDesc : t.watchgenDesc,
           image:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
-          link: "https://github.com/corspolicy/corsdev",
+          link: "https://github.com/corspolicy/url-shorter",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.javascript, t.nodejs, t.reactjs, t.nextjs, t.html, t.css, t.tailwind],
+          technologies: [t.reactjs, t.typescript, t.tailwind, t.bunjs],
         },
-        {
+       {
           id: 3,
+          title: "Kandilli Map",
+          description: language === "tr" ? t.kandillimapDesc : t.kandillimapDesc,
+          image:              "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
+          link: "https://github.com/Squezilia/kandilli-map",
+          icon: <Code className="h-5 w-5 text-yellow-400" />,
+          technologies: [t.vuejs, t.typescript, t.html, t.css],
+       },  
+        {
+          id: 4,
           title: "Koeri API",
           description: language === "tr" ? t.depremapiDesc : t.depremapiDesc,
           image:
@@ -174,17 +189,17 @@ function BreadcrumbDemo() {
           technologies: [t.javascript, t.nodejs, t.html, t.css],
         },
         {
-          id: 4,
-          title: "Kandilli Map",
-          description: language === "tr" ? t.kandillimapDesc : t.kandillimapDesc,
+          id: 5,
+          title: "CorsDev Portfolio",
+          description: language === "tr" ? t.corsdevDesc : t.corsdevDesc,
           image:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
-          link: "https://github.com/Squezilia/kandilli-map",
+          link: "https://github.com/corspolicy/corsdev",
           icon: <Code className="h-5 w-5 text-yellow-400" />,
-          technologies: [t.vuejs, t.typescript, t.html, t.css],
-        },
+          technologies: [t.javascript, t.nodejs, t.reactjs, t.nextjs, t.html, t.css, t.tailwind],
+        },        
         {
-          id: 5,
+          id: 6,
           title: "Discord Bot",
           description: language === "tr" ? t.discordbotDesc : t.discordbotDesc,
           image:
@@ -193,8 +208,9 @@ function BreadcrumbDemo() {
           icon: <Code className="h-5 w-5 text-yellow-400" />,
           technologies: [t.javascript, t.nodejs],
         },
+        
         {
-          id: 6,
+          id: 7,
           title: "Telegram Automation",
           description: language === "tr" ? t.discordbotDesc : t.discordbotDesc,
           image:
