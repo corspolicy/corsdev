@@ -212,7 +212,7 @@ function BreadcrumbDemo() {
         {
           id: 7,
           title: "Telegram Automation",
-          description: language === "tr" ? t.discordbotDesc : t.discordbotDesc,
+          description: language === "tr" ? t.telegramautoDesc : t.telegramautoDesc,
           image:
             "https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/Octicons-mark-github.svg/2048px-Octicons-mark-github.svg.png",
           link: "https://github.com/corspolicy/TelegramAuto",
